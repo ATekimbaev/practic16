@@ -1,8 +1,7 @@
 import 'dart:io';
 
 void main() {
-  Cloth().getName();
-  print(Cloth().getData());
+  Content().getData();
 }
 
 class Cloth {
@@ -12,19 +11,13 @@ class Cloth {
   getName() {
     print('Введите назавние вещи');
     name = stdin.readLineSync();
-    if (name != null) {
-      getPrice();
-    }
+
     return name;
   }
 
   getPrice() {
     print('Введите цену вещи');
     price = int.parse(stdin.readLineSync()!);
-    return price;
-  }
-
-  getData() {
     return price;
   }
 }
@@ -46,14 +39,28 @@ class Content extends Developer {
   getConsist() {
     print('Введите состав');
     consist = stdin.readLineSync();
-    if (consist != null) {
-      getNumber();
-    }
+    return consist;
   }
 
   getNumber() {
     print('Введите количество');
     number = int.parse(stdin.readLineSync()!);
     return number;
+  }
+
+  getData() {
+    var a = getName();
+    var b = getPrice();
+    var c = Developer().getData();
+    var d = getConsist();
+    var x = getNumber();
+
+    print('''*****************
+    Назавние вещи: $a
+    Цена вещи: $b
+    Производитель: $c
+    Состав: $d
+    Количество: $x 
+    *****************''');
   }
 }
